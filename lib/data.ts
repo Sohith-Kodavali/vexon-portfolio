@@ -73,7 +73,7 @@ export const projects: Project[] = [
     scope: ["Art direction", "Website", "Ordering flow", "Copy"],
     stack: ["HTML5", "CSS3", "JavaScript"],
     outcome: "Case study to be written.",
-    image: "/work/rrkfoods.svg",
+    image: "/work/rrkfoods.webp",
     url: "https://rrkfoods.in",
     colors: { c1: [0.96, 0.26, 0.15], c2: [0.1, 0.04, 0.03], freq: 2.2, warp: 1.6 }
   },
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     scope: ["Website", "Event pages", "Motion"],
     stack: ["HTML5", "CSS3", "JavaScript"],
     outcome: "Case study to be written.",
-    image: "/work/techyuva.svg",
+    image: "/work/techyuva.webp",
     url: "https://techyuva.in",
     colors: { c1: [0.16, 0.8, 0.66], c2: [0.02, 0.1, 0.09], freq: 2.8, warp: 2.0 }
   },
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     scope: ["Creative direction", "Website", "Product narrative"],
     stack: ["HTML5", "CSS3", "JavaScript"],
     outcome: "Case study to be written.",
-    image: "/work/zyppyn.svg",
+    image: "/work/zyppyn.webp",
     url: "https://zyppyn.com",
     colors: { c1: [0.48, 0.7, 0.96], c2: [0.03, 0.06, 0.11], freq: 2.4, warp: 1.6 }
   },
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     scope: ["Website", "Information architecture", "Copy"],
     stack: ["HTML5", "CSS3", "JavaScript"],
     outcome: "Case study to be written.",
-    image: "/work/envirosys.svg",
+    image: "/work/envirosys.webp",
     colors: { c1: [0.4, 0.8, 0.36], c2: [0.03, 0.09, 0.05], freq: 2.1, warp: 1.7 }
   }
 ];

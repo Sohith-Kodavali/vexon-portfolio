@@ -98,11 +98,14 @@ export default function WordText({
         <mesh geometry={shaped.geometry}>
           <meshPhysicalMaterial
             ref={liquidRef}
-            // Saturated and mostly opaque. At transmission 0.85 the material
-            // showed almost nothing but the page behind it, so on a white page
-            // the name was white glass on white — invisible. It has to carry its
-            // own colour to exist at all.
-            color="#4f83ff"
+            // Deep, saturated blue so the name reads on frame 1 against the
+            // near-white default theme. It stays a transmissive glass on purpose:
+            // transmission is the render path that draws the wordmark above the
+            // fullscreen FluidBackground. As a plain opaque material it is drawn
+            // in the opaque pass, lands *under* that backdrop, and only survives
+            // as bloom — which is exactly the "white-on-white, invisible until you
+            // scroll" symptom this fixes.
+            color={dark ? "#8fb2ff" : "#1533b0"}
             metalness={0}
             roughness={0.18}
             transmission={glass ? 0.3 : 0}

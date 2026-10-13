@@ -105,7 +105,13 @@ export default function FluidBackground() {
     }
     mat.transparent = true;
     mat.depthWrite = false;
-    mat.depthTest = false;
+    // Depth-tested, NOT depthTest:false. It is a transparent fullscreen quad, so
+    // it draws in the transparent pass *after* the opaque list — with depthTest
+    // off it painted straight over the wordmark, which is why the name only ever
+    // showed when its own material was transmissive (that renders in a later
+    // pass). The backdrop sits at z=-8, behind the word, so depth-testing lets
+    // the name occlude it as it should.
+    mat.depthTest = true;
     mat.toneMapped = false;
     return mat;
   }, [uniforms]);
