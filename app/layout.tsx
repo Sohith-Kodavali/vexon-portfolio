@@ -1,0 +1,94 @@
+import type { Metadata, Viewport } from "next";
+import { display, serif, sans, mono } from "./fonts";
+import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import Cursor from "@/components/Cursor";
+import PointerTrail from "@/components/PointerTrail";
+import Loader from "@/components/Loader";
+import ScrollProgress from "@/components/ScrollProgress";
+import GridOverlay from "@/components/GridOverlay";
+import RouteTransition from "@/components/RouteTransition";
+import WorkAssistant from "@/components/WorkAssistant";
+import { ThemeProvider } from "@/lib/useTheme";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Vexon Solutions — Design Engineer",
+    template: "%s · Vexon Solutions"
+  },
+  description:
+    "Design engineer building interfaces where motion is the material — interface design, creative front-end and real-time graphics.",
+  metadataBase: new URL("https://example.com"),
+  authors: [{ name: "Vexon Solutions" }],
+  creator: "Vexon Solutions",
+  keywords: [
+    "design engineer",
+    "creative developer",
+    "webgl portfolio",
+    "interface design",
+    "interaction design",
+    "front-end engineering",
+    "three.js",
+    "next.js"
+  ],
+  openGraph: {
+    title: "Vexon Solutions — Design Engineer",
+    description:
+      "Interfaces where motion is the material — design, creative front-end and real-time graphics.",
+    type: "website",
+    locale: "en_IN",
+    siteName: "Vexon Solutions",
+    images: ["/og.svg"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vexon Solutions — Design Engineer",
+    description: "Interfaces where motion is the material.",
+    images: ["/og.svg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" }
+  }
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f2ed" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0d0d" }
+  ],
+  colorScheme: "light dark"
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      className={`${display.variable} ${serif.variable} ${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}"
+          }}
+        />
+      </head>
+      <body>
+        <ThemeProvider>
+          <GridOverlay />
+          <div className="grain" aria-hidden />
+          <RouteTransition />
+          <Loader />
+          <ScrollProgress />
+          <PointerTrail />
+          <Cursor />
+          <SmoothScroll>{children}</SmoothScroll>
+          <WorkAssistant />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
