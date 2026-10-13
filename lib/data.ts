@@ -6,7 +6,7 @@
 
 export const profile = {
   name: "Vexon Solutions",
-  role: "Design Engineer",
+  role: "Design Studio",
   discipline: "Interfaces · Motion · WebGL",
   location: "India",
   timezone: "IST (UTC+5:30)",
@@ -23,7 +23,7 @@ export const profile = {
 export const heroWords = ["Interfaces", "that", "feel", "alive"] as const;
 
 export const manifesto =
-  "I design and engineer interfaces where motion is the material. Not decoration — structure. The part that tells you where you are, what matters, and what happens next.";
+  "We design and engineer interfaces where motion is the material. Not decoration — structure. The part that tells you where you are, what matters, and what happens next.";
 
 export const tickerWords = [
   "Interface design",

@@ -72,7 +72,7 @@ function respond(q: string): Turn {
 
   return {
     role: "site",
-    text: `I can talk about ${projects.map((p) => p.name).join(", ")}, the stack, or how to get in touch.`
+    text: `We can talk about ${projects.map((p) => p.name).join(", ")}, the stack, or how to get in touch.`
   };
 }
 
@@ -120,7 +120,7 @@ export default function WorkAssistant() {
         <div ref={scroller} className="flex-1 overflow-y-auto p-4 text-sm leading-relaxed">
           {turns.length === 0 && (
             <p className="text-muted">
-              Ask me about any project, the stack behind them, or how to get in touch.
+              Ask us about any project, the stack behind them, or how to get in touch.
             </p>
           )}
           {turns.map((t, i) => (

@@ -13,7 +13,7 @@ export default function Capabilities() {
     <section id="capabilities" data-grade="#beb2a7" className="shell py-[12vh]">
       <div className="mb-[6vh] flex flex-wrap items-end justify-between gap-8">
         <div>
-          <span className="t-eyebrow">What I do / 02</span>
+          <span className="t-eyebrow">What we do / 02</span>
           <HeadingReveal className="t-lg mt-5 max-w-[16ch]">
             Four disciplines, one hand.
           </HeadingReveal>

@@ -13,16 +13,16 @@ import { ThemeProvider } from "@/lib/useTheme";
 
 export const metadata: Metadata = {
   title: {
-    default: "Vexon Solutions — Design Engineer",
+    default: "Vexon Solutions — Design Studio",
     template: "%s · Vexon Solutions"
   },
   description:
-    "Design engineer building interfaces where motion is the material — interface design, creative front-end and real-time graphics.",
+    "Design studio building interfaces where motion is the material — interface design, creative front-end and real-time graphics.",
   metadataBase: new URL("https://example.com"),
   authors: [{ name: "Vexon Solutions" }],
   creator: "Vexon Solutions",
   keywords: [
-    "design engineer",
+    "design studio",
     "creative developer",
     "webgl portfolio",
     "interface design",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "next.js"
   ],
   openGraph: {
-    title: "Vexon Solutions — Design Engineer",
+    title: "Vexon Solutions — Design Studio",
     description:
       "Interfaces where motion is the material — design, creative front-end and real-time graphics.",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vexon Solutions — Design Engineer",
+    title: "Vexon Solutions — Design Studio",
     description: "Interfaces where motion is the material.",
     images: ["/og.svg"]
   },

@@ -95,7 +95,7 @@ export default function Hero() {
           data-fade
           className="col-span-12 max-w-[46ch] text-sm leading-relaxed lg:col-span-4 lg:col-start-9"
         >
-          {`I'm ${profile.name} — a design engineer building interfaces, systems and the
+          {`We're ${profile.name} — a design studio building interfaces, systems and the
           motion that makes them legible. Currently taking on select work.`}
         </p>
       </div>
@@ -106,7 +106,7 @@ export default function Hero() {
       {/* statement */}
       <div className="pb-[4vh]" data-hero-block>
         <h1 data-hero-title className="t-display t-huge">
-          I build
+          We build
           <br />
           interfaces
           <br />

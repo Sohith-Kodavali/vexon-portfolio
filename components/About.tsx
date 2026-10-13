@@ -36,12 +36,12 @@ export default function About() {
 
             <div className="mt-9 flex flex-col gap-6 text-[clamp(16px,1.15vw,20px)] leading-relaxed text-bone/85">
               <ScrollRevealText as="p" className="max-w-[52ch]" dim={0.18}>
-                I work across design and engineering — building interfaces, systems and the
+                We work across design and engineering — building interfaces, systems and the
                 motion that makes them legible. Understand the problem precisely, then obsess
                 over the details until the product feels inevitable.
               </ScrollRevealText>
               <ScrollRevealText as="p" className="max-w-[52ch]" dim={0.18} start="top 88%" end="bottom 60%">
-                Most of what I do lives between the two disciplines — close enough to the code
+                Most of what we do lives between the two disciplines — close enough to the code
                 to know what is expensive, close enough to the design to know what matters.
               </ScrollRevealText>
             </div>
