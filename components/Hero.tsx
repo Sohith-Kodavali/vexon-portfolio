@@ -51,8 +51,9 @@ export default function Hero() {
         scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true }
       });
 
-      // Drives the 3D pointer's exit: it scales down and slides off to the
-      // right as the hero leaves, and stays hidden over the rest of the page.
+      // Drives the backdrop fade and the pointer's exit as the page scrolls away
+      // from the hero. The hero's own on-load exit (camera dolly + pointer) is
+      // separate — see HeroAutoPlay — and folds in through stage.heroAnim.
       const exit = { p: 0 };
       gsap.to(exit, {
         p: 1,

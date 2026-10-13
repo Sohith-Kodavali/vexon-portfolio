@@ -437,10 +437,9 @@ canvas {
   transform: translate3d(var(--ox, 0px), calc(var(--oy, 0px) + var(--smear, 0px)), 0);
 }
 
-/* The blueprint grid leans very slightly with scroll velocity, and drifts with
-   the hero's automatic backdrop motion (--ox/--oy). */
+/* The blueprint grid leans very slightly with scroll velocity. */
 .grid-lines {
-  transform: translate3d(calc(var(--ox, 0px) * 0.2), calc(var(--smear, 0px) * 0.35 + var(--oy, 0px) * 0.45), 0);
+  transform: translate3d(0, calc(var(--smear, 0px) * 0.35), 0);
   will-change: transform;
 }
 

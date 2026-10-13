@@ -3,6 +3,8 @@
 export const stage = {
   /** 0 → 1 as the hero scrolls out — drives the pointer's exit */
   heroExit: 0,
+  /** 0 → 1 auto-played once on load; the shell folds it into the hero's scroll */
+  heroAnim: 0,
   /** 0 → 1 through the pinned warp transition */
   warp: 0,
   /** true while the transition owns the screen (keeps the canvas awake) */

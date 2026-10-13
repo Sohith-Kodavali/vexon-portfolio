@@ -1,8 +1,7 @@
 import ShellCanvas from "@/components/ShellCanvasLazy";
 import ColorGrade from "@/components/ColorGrade";
 import ScrollSmear from "@/components/ScrollSmear";
-import HeroBackdropDrift from "@/components/HeroBackdropDrift";
-import AutoScrollIntro from "@/components/AutoScrollIntro";
+import HeroAutoPlay from "@/components/HeroAutoPlay";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Statement from "@/components/Statement";
@@ -20,8 +19,7 @@ export default function Home() {
     <>
       <ColorGrade />
       <ScrollSmear />
-      <HeroBackdropDrift />
-      <AutoScrollIntro />
+      <HeroAutoPlay />
       <ShellCanvas />
       <Nav />
       <main>

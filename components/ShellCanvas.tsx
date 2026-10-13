@@ -89,8 +89,11 @@ function CameraRig({ scroll }: { scroll: React.RefObject<number> }) {
 
   useFrame((_, delta) => {
     const k = Math.min(1, delta * 3);
-    const y = scroll.current ?? 0;
     const vh = Math.max(window.innerHeight, 1);
+    // The hero also auto-plays its exit on load; folding that into the dolly
+    // alone makes the wordmark read smaller as it settles, while the wordmark's
+    // own position stays exactly where it is.
+    const y = Math.max(scroll.current ?? 0, stage.heroAnim * vh * 1.25);
 
     // 0 at the top, 1 once the hero has scrolled away.
     const t = Math.min(Math.max(y / (vh * 1.25), 0), 1);
@@ -204,7 +207,7 @@ function PointerObject() {
     const t = state.clock.elapsedTime;
     const k = Math.min(1, delta * 6);
 
-    const heroExit = clamp(stage.heroExit, 0, 1);
+    const heroExit = clamp(Math.max(stage.heroExit, stage.heroAnim), 0, 1);
     const warp = clamp(stage.warp, 0, 1);
 
     const restX = viewport.width / 2 - 1.35;
