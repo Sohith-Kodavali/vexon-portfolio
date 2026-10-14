@@ -135,6 +135,16 @@ canvas {
   max-width: 100%;
 }
 
+/* react-three-fiber sets `pointer-events: auto` on its canvas *and* its wrapper
+   divs, which defeats the shell's `pointer-events-none` container — the
+   full-screen canvas then swallows clicks aimed at static content painted under
+   it (the footer, most visibly). Force the whole decorative shell subtree to stay
+   inert. Every `pointer-events-none` element on this site is decorative. */
+.pointer-events-none,
+.pointer-events-none * {
+  pointer-events: none !important;
+}
+
 /* ---------- Type ---------- */
 .t-display {
   font-family: var(--font-display);

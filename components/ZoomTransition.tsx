@@ -102,7 +102,7 @@ export default function ZoomTransition() {
   }, []);
 
   return (
-    <section ref={root} className="relative h-screen overflow-hidden" aria-label="Transition">
+    <section ref={root} id="process" className="relative h-screen overflow-hidden" aria-label="Transition">
       {/* dark backdrop the pointer mask hands over to */}
       <div
         ref={dark}
