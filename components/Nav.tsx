@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { scrollToId } from "@/lib/scroll";
 import { useClock } from "@/lib/useClock";
 import { profile } from "@/lib/data";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { label: "WORK", href: "#work" },
-  { label: "STUDIO", href: "#capabilities" },
-  { label: "PROCESS", href: "#process" },
-  { label: "CONTACT", href: "#contact" }
+  { label: "WORK", href: "/#work" },
+  { label: "STUDIO", href: "/#capabilities" },
+  { label: "PROCESS", href: "/#process" },
+  { label: "CONTACT", href: "/#contact" }
 ];
 
 export default function Nav() {
   const time = useClock();
+  const pathname = usePathname();
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
@@ -24,9 +26,12 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (e: React.MouseEvent, href: string) => {
+  // On the home page the links are in-page anchors, so they smooth-scroll.
+  // Anywhere else they navigate to the home page and its anchor.
+  const go = (e: React.MouseEvent, hash: string) => {
+    if (pathname !== "/") return;
     e.preventDefault();
-    scrollToId(href);
+    scrollToId(hash);
   };
 
   return (
@@ -37,7 +42,7 @@ export default function Nav() {
     >
       <div className="grid grid-cols-12 items-center gap-4 shell py-4">
         <a
-          href="#top"
+          href="/"
           onClick={(e) => go(e, "#top")}
           className="col-span-6 font-mono text-[10px] uppercase tracking-[0.18em] lg:col-span-3"
           data-cursor="Top"
@@ -50,7 +55,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              onClick={(e) => go(e, l.href)}
+              onClick={(e) => go(e, l.href.slice(1))}
               className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted transition-colors duration-300 hover:text-bone"
             >
               {l.label}

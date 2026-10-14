@@ -1,11 +1,19 @@
 "use client";
 
 import { profile } from "@/lib/data";
-import { scrollToId } from "@/lib/scroll";
+import { getLenis } from "@/lib/scroll";
 import Parallax from "./Parallax";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
+  // Works on the home page and on subpages: scrolls the page back to the top
+  // rather than depending on a hero anchor that only exists on the home page.
+  const toTop = () => {
+    const lenis = getLenis();
+    if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="shell pb-[var(--gutter)]">
@@ -18,7 +26,7 @@ export default function Footer() {
             </h2>
           </Parallax>
           <button
-            onClick={() => scrollToId("#top")}
+            onClick={toTop}
             className="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted transition-colors hover:text-bone"
             data-cursor="Top"
           >

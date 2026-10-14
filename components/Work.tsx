@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { projects } from "@/lib/data";
 import { setThemeFromProject, clearTheme } from "@/lib/theme";
@@ -42,7 +43,7 @@ export default function Work() {
     <section id="work" data-grade="none" className="shell pt-[16vh] pb-[8vh]">
       <Parallax speed={0.05}>
         <header className="grid grid-cols-12 gap-x-4 gap-y-6 pb-[12vh]">
-          <span className="col-span-12 t-eyebrow lg:col-span-3">Selected work / 01—05</span>
+          <span className="col-span-12 t-eyebrow lg:col-span-3">Selected work / 01—04</span>
           <HeadingReveal className="col-span-12 t-lg lg:col-span-8">
             Work built to make the right people stop.
           </HeadingReveal>
@@ -53,10 +54,7 @@ export default function Work() {
         {projects.map((p, i) => {
           const card = (
             <>
-              <div
-                data-media
-                className="relative aspect-video w-full overflow-hidden lg:w-[64%]"
-              >
+              <div data-media className="relative aspect-video w-full overflow-hidden lg:w-[64%]">
                 <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(.66,0,.01,1)] group-hover:scale-[1.06]">
                   {/* Placeholder only — the image itself is drawn in the WebGL
                       shell (WorkLayers), so the curl is a single page-wide
@@ -66,11 +64,9 @@ export default function Work() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image} alt={`${p.name} — ${p.category}`} className="h-full w-full object-cover" />
                 </div>
-                {p.url && (
-                  <span className="absolute top-5 right-5 font-mono text-[10px] uppercase tracking-[0.14em] text-bone/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    Visit site ↗
-                  </span>
-                )}
+                <span className="absolute top-5 right-5 font-mono text-[10px] uppercase tracking-[0.14em] text-bone/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  View case ↗
+                </span>
               </div>
 
               <div className="mt-5 grid grid-cols-12 items-baseline gap-x-4 gap-y-2">
@@ -91,33 +87,27 @@ export default function Work() {
           const className = `group block ${i % 2 === 1 ? "lg:pl-[10%]" : ""}`;
           const onMouseEnter = () => setThemeFromProject(p.colors);
 
-          // Projects with a live URL open it in a new tab; one without stays a
-          // plain card rather than becoming a dead link.
-          return p.url ? (
-            <a
+          // Every project opens its own case study; the live site is linked from
+          // that page instead.
+          return (
+            <Link
               key={p.slug}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/work/${p.slug}`}
               data-row
               onMouseEnter={onMouseEnter}
-              data-cursor="Visit site"
-              aria-label={`${p.name} — open the live site in a new tab`}
+              data-cursor="View case"
+              aria-label={`${p.name} — open the case study`}
               className={className}
             >
               {card}
-            </a>
-          ) : (
-            <div key={p.slug} data-row onMouseEnter={onMouseEnter} className={className}>
-              {card}
-            </div>
+            </Link>
           );
         })}
       </div>
 
       <Reveal className="mt-[10vh] flex justify-end">
         <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-          Every project opens the live site — in a new tab
+          Every project opens its case study
         </span>
       </Reveal>
     </section>
